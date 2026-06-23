@@ -1,0 +1,6 @@
+<svg width="124" height="100" viewBox="0 0 124 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grupo Real">
+  <!-- Losango esquerdo: centro (40,50) -->
+  <rect x="11" y="21" width="58" height="58" rx="9" transform="rotate(45 40 50)" fill="#E8501A"/>
+  <!-- Losango direito: centro (84,50) -->
+  <rect x="55" y="21" width="58" height="58" rx="9" transform="rotate(45 84 50)" fill="#E8501A"/>
+</svg>
