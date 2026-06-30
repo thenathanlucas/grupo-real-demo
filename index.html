@@ -3,29 +3,49 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="robots" content="noindex,nofollow"/>
 <meta name="description" content="Empréstimo consignado para INSS, CLT, SIAPE e militares em Bangu e Realengo (RJ). Atendimento presencial e online pelo WhatsApp, sem burocracia."/>
-<title>Empréstimo Consignado em Bangu e Realengo (RJ) — Grupo Real Intermediações</title>
+<title>Empréstimo Consignado em Bangu e Realengo (RJ) — Grupo Real Intermediação</title>
 <link rel="icon" href="assets/logo/grupo-real-icon.svg" type="image/svg+xml"/>
-<meta property="og:title" content="Quem já fez com a gente, aprovou! — Grupo Real Intermediações"/>
+<meta property="og:title" content="Quem já fez com a gente, aprovou! — Grupo Real Intermediação"/>
 <meta property="og:description" content="Crédito consignado com atendimento rápido, sem enrolação e com muito respeito."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://www.gruporealintermediacao.com.br/"/>
 <meta property="og:image" content="https://www.gruporealintermediacao.com.br/assets/og/grupo-real-og.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="Grupo Real Intermediações — Escolha o crédito certo pra você"/>
+<meta property="og:image:alt" content="Grupo Real Intermediação — Escolha o crédito certo pra você"/>
 <link rel="canonical" href="https://www.gruporealintermediacao.com.br/"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Quem já fez com a gente, aprovou! — Grupo Real Intermediações"/>
+<meta name="twitter:title" content="Quem já fez com a gente, aprovou! — Grupo Real Intermediação"/>
 <meta name="twitter:description" content="Crédito consignado com atendimento rápido, sem enrolação e com muito respeito."/>
 <meta name="twitter:image" content="https://www.gruporealintermediacao.com.br/assets/og/grupo-real-og.jpg"/>
 
-<!-- Analytics DESATIVADO nesta cópia de demonstração (não toca GA4/Clarity de produção) -->
+<!-- Analytics com gate de consentimento (LGPD — opt-out / legítimo interesse) -->
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);} /* stub seguro p/ trackWA() */
-window.grLoadTracking = function(){}; /* no-op: nenhum script de tracking é carregado neste demo */
+window.grLoadTracking = function(){
+  if (window.__grTrackingLoaded) return;
+  window.__grTrackingLoaded = true;
+  /* Google Analytics 4 */
+  var ga = document.createElement('script');
+  ga.async = true;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-RJH4XR0J4H';
+  document.head.appendChild(ga);
+  gtag('js', new Date());
+  gtag('config', 'G-RJH4XR0J4H');
+  /* Microsoft Clarity */
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wx5l1wztnj");
+};
+(function(){
+  var c; try { c = localStorage.getItem('gr_cookie_consent'); } catch(e){}
+  if (c === 'rejected') { window['ga-disable-G-RJH4XR0J4H'] = true; }
+  else { window.grLoadTracking(); } /* aceito OU indeciso → legítimo interesse */
+})();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -115,12 +135,6 @@ tailwind.config = {
   .hero-chip::before {
     content: ''; width: 6px; height: 6px;
     background: #D98324; border-radius: 50%; flex-shrink: 0;
-  }
-
-  /* Sobre photo overlay */
-  .sobre-photo-overlay::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(43,29,20,0.95) 0%, transparent 55%);
   }
 
   /* Accordion / Nav / Hamburger */
@@ -220,9 +234,9 @@ tailwind.config = {
     position: absolute; top: 16px; left: 16px; z-index: 3;
     font-family: 'Source Sans 3', system-ui, sans-serif;
     font-size: 12px; font-weight: 700; letter-spacing: .04em;
-    color: #FFF3E9; padding: 5px 13px; border-radius: 999px;
-    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28);
-    backdrop-filter: blur(4px); white-space: nowrap;
+    color: #fff; padding: 5px 13px; border-radius: 999px;
+    background: #E8501A; border: 1px solid rgba(255,255,255,.30);
+    box-shadow: 0 4px 12px rgba(43,42,39,.30); white-space: nowrap;
   }
 
   .cf-title {
@@ -246,7 +260,7 @@ tailwind.config = {
   .cf-sub {
     margin: 0;
     font-family: 'Source Sans 3', system-ui, sans-serif;
-    font-size: 16px; line-height: 1.5; color: #524C45;
+    font-size: 15px; line-height: 1.5; color: #524C45;
   }
 
   .cf-footer {
@@ -263,6 +277,23 @@ tailwind.config = {
     font-family: 'Bitter', Georgia, serif;
     font-size: 26px; font-weight: 700; color: #E8501A; line-height: 1; white-space: nowrap;
   }
+
+  /* Card Cartão — destaque do valor recebido / parcelas (scoped, 2026-06-25) */
+  .cf-footer-cartao { flex-direction: column; align-items: stretch; gap: 10px; padding-top: 6px; }
+  .cf-stats { display: flex; align-items: flex-end; gap: 0; }
+  .cf-stat { display: flex; flex-direction: column; line-height: 1; }
+  .cf-stat + .cf-stat { margin-left: 16px; padding-left: 16px; border-left: 1px solid rgba(43,42,39,.14); }
+  .cf-stat-lbl {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 13px; font-weight: 600; color: #524C45; margin-bottom: 5px; white-space: nowrap;
+  }
+  .cf-stat-lbl b { color: #1A0E06; font-weight: 800; }
+  .cf-stat-val {
+    font-family: 'Bitter', Georgia, serif; font-weight: 700; color: #E8501A;
+    font-size: 22px; line-height: 1; white-space: nowrap;
+  }
+  .cf-stat-val--big { font-size: 29px; }
+  .cf-cta--full { width: 100%; justify-content: center; }
 
   .cf-cta {
     display: inline-flex; align-items: center; gap: 9px; text-decoration: none;
@@ -301,24 +332,23 @@ tailwind.config = {
     border: none; padding: 0; transition: all .25s;
   }
 
-  /* ─── Depoimentos: mockup de celular (WhatsApp) ─── */
-  .zap-phone{ width:288px; background:#1f1b18; border-radius:40px; padding:12px;
-    box-shadow:0 18px 48px rgba(30,46,34,.16); flex-shrink:0; }
-  .zap-screen{ background:#ECE5DD; border-radius:28px; overflow:hidden;
-    display:flex; flex-direction:column; height:520px; }
-  .zap-top{ background:#075E54; color:#fff; display:flex; align-items:center;
-    gap:10px; padding:12px 14px; flex-shrink:0; }
-  .zap-avatar{ width:34px; height:34px; border-radius:50%; background:#25D366; color:#fff;
-    display:flex; align-items:center; justify-content:center; font-weight:700;
-    font-size:13px; flex-shrink:0; }
-  .zap-body{ flex:1; overflow-y:auto; padding:16px 12px;
-    display:flex; flex-direction:column; gap:8px; }
-  .zap-bubble{ max-width:82%; padding:8px 11px; border-radius:10px;
-    font-family:'Source Sans 3',system-ui,sans-serif; font-size:16px; line-height:1.45;
-    box-shadow:0 1px 1px rgba(0,0,0,.08); position:relative; }
-  .zap-in{ align-self:flex-start; background:#fff; color:#2B2A27; border-top-left-radius:2px; }
-  .zap-out{ align-self:flex-end; background:#DCF8C6; color:#1f2c1f; border-top-right-radius:2px; }
-  .zap-time{ display:block; font-size:14px; color:#7A756C; margin-top:3px; text-align:right; }
+  /* ─── Depoimentos: cartões editoriais, paleta pêssego (CSS legado .zap-* removido em 2026-06-25) ─── */
+  .dep-card{ position:relative; overflow:hidden; isolation:isolate;
+    box-shadow:0 18px 44px rgba(43,42,39,.13), 0 6px 16px rgba(43,42,39,.08); }
+  /* aspa serifada como marca-d'água editorial (cor definida por paleta) */
+  .dep-card::before{ content:'\201C'; position:absolute; top:6px; right:20px; z-index:0;
+    font-family:'Bitter',Georgia,serif; font-weight:700; font-size:120px; line-height:1;
+    pointer-events:none; }
+  .dep-card > *{ position:relative; z-index:1; }
+
+  /* Paleta Pêssego claro */
+  .dep-peach{ background:linear-gradient(158deg,#FFF3EA 0%,#FFE3D0 100%); border:1px solid rgba(232,80,26,.16); }
+  .dep-peach::before{ color:rgba(232,80,26,.10); }
+
+  @media (min-width:768px){
+    .dep-card{ transition:transform .35s ease, box-shadow .35s ease; }
+    .dep-card:hover{ transform:translateY(-6px);
+      box-shadow:0 26px 56px rgba(43,42,39,.18), 0 8px 18px rgba(43,42,39,.10); } }
 
   /* ─── Seção Motivos — carrossel A3 ─── */
   .mtv-carousel{ position:relative; }
@@ -335,10 +365,8 @@ tailwind.config = {
     background:#fff; color:#E8501A; box-shadow:0 6px 18px rgba(43,42,39,.14); border:none; cursor:pointer; }
   .mtv-arrow:disabled{ opacity:.35; cursor:default; }
   .mtv-arrow:not(:disabled):hover{ background:#E8501A; color:#fff; }
-  .mtv-dots{ display:flex; align-items:center; gap:8px; }
-  .mtv-dot{ width:9px; height:9px; border-radius:999px; transition:all .25s ease;
-    background:rgba(43,42,39,.22); border:none; padding:0; cursor:pointer; min-width:9px; }
-  .mtv-dot.is-on{ background:#E8501A; width:26px; }
+  .mtv-progress{ width:140px; height:4px; border-radius:999px; background:rgba(43,42,39,.16); overflow:hidden; }
+  .mtv-progress-fill{ display:block; height:100%; width:0; border-radius:inherit; background:#E8501A; transition:width .3s ease; }
   .a3-card{ position:relative; height:400px; border-radius:20px; overflow:hidden; box-shadow:0 20px 46px rgba(43,42,39,.2); }
   .a3-scrim{ position:absolute; inset:0; z-index:2;
     background:linear-gradient(to top, rgba(20,12,6,.92) 4%, rgba(20,12,6,.45) 38%, rgba(20,12,6,0) 66%); }
@@ -354,7 +382,7 @@ tailwind.config = {
     text-shadow:0 2px 8px rgba(0,0,0,.95), 0 1px 3px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,.7); }
   .a3-body p{ font-size:16px; line-height:1.6; color:rgba(255,247,240,.9);
     text-shadow:0 1px 6px rgba(0,0,0,.95), 0 0 12px rgba(0,0,0,.8); }
-  @media(prefers-reduced-motion:reduce){ .mtv-track{ scroll-behavior:auto; } .mtv-dot{ transition:none; } }
+  @media(prefers-reduced-motion:reduce){ .mtv-track{ scroll-behavior:auto; } .mtv-progress-fill{ transition:none; } }
 
   /* ─── V2: Faixa Prova Social ─── */
   .stat-bar-item{ display:flex; flex-direction:column; align-items:center; padding:20px 12px; }
@@ -370,6 +398,11 @@ tailwind.config = {
     padding:10px 16px; border-radius:999px;
     box-shadow:0 4px 16px rgba(43,42,39,.14); white-space:nowrap; }
   @media(min-width:768px){ .wa-fab-label{ display:block; } }
+
+  /* ─── V2: Sticky mobile footer ─── */
+  .sticky-mob-cta{ display:none; position:fixed; bottom:0; left:0; right:0; z-index:290;
+    background:#fff; border-top:1px solid #E8E3D9; padding:10px 16px; }
+  @media(max-width:767px){ .sticky-mob-cta.is-visible{ display:block; } }
 
   /* ─── V2 Orange-First ──────────────────────── */
   /* card-glass: sombra quente (undertone laranja) */
@@ -453,7 +486,7 @@ tailwind.config = {
 {
   "@context": "https://schema.org",
   "@type": ["FinancialService", "LocalBusiness"],
-  "name": "Grupo Real Intermediações",
+  "name": "Grupo Real Intermediação",
   "description": "Correspondente bancário autorizado pelo Banco Central do Brasil. Empréstimo consignado com atendimento humano e presencial na Zona Oeste do Rio de Janeiro.",
   "url": "https://www.gruporealintermediacao.com.br/",
   "logo": "https://www.gruporealintermediacao.com.br/assets/logo/grupo-real-icon.svg",
@@ -484,7 +517,7 @@ tailwind.config = {
   "branch": [
     {
       "@type": "LocalBusiness",
-      "name": "Grupo Real Intermediações — Matriz Realengo",
+      "name": "Grupo Real Intermediação — Matriz Realengo",
       "telephone": "+55-21-96478-1371",
       "address": {
         "@type": "PostalAddress",
@@ -497,7 +530,7 @@ tailwind.config = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "Grupo Real Intermediações — Filial Bangu",
+      "name": "Grupo Real Intermediação — Filial Bangu",
       "telephone": "+55-21-98888-3917",
       "address": {
         "@type": "PostalAddress",
@@ -584,11 +617,11 @@ tailwind.config = {
     <!-- Logo -->
     <a href="#topo" class="flex items-center gap-3 no-underline shrink-0">
       <div class="relative shrink-0">
-        <img src="assets/logo/logo-grupo-real.webp" alt="Grupo Real Intermediações" width="62" height="62" class="rounded-full" style="display:block"/>
+        <img src="assets/logo/logo-grupo-real.webp" alt="Grupo Real Intermediação" width="62" height="62" class="rounded-full" style="display:block"/>
       </div>
       <div class="flex flex-col justify-center">
         <div class="font-bitter text-[20px] font-bold text-ink-nav leading-none tracking-[-0.3px]">Grupo Real</div>
-        <div class="font-source text-[11px] font-semibold tracking-[.09em] uppercase text-ink-nav-sub leading-none mt-[3px]">Intermediações</div>
+        <div class="font-source text-[11px] font-semibold tracking-[.09em] uppercase text-ink-nav-sub leading-none mt-[3px]">Intermediação</div>
       </div>
     </a>
 
@@ -663,7 +696,7 @@ tailwind.config = {
     <h1 class="font-bitter font-bold text-white mb-4 tracking-[-0.5px]" style="font-size:clamp(30px,4.4vw,46px);line-height:1.08">
       Escolha o crédito <span style="background:#17A24B;color:#fff;border-radius:8px;font-style:italic;padding:2px .26em">certo</span> pra você
     </h1>
-    <p class="font-source mx-auto" style="color:rgba(255,247,240,0.92);font-size:clamp(16px,1.6vw,17px);line-height:1.55;max-width:540px">
+    <p class="font-source mx-auto" style="color:rgba(255,247,240,0.92);font-size:clamp(15px,1.6vw,17px);line-height:1.55;max-width:540px">
       Um consultor analisa seu convênio e mostra as condições reais — sem pressão, sem letra miúda escondida.
     </p>
   </div>
@@ -724,9 +757,7 @@ tailwind.config = {
         <div class="cf-card-wrap" id="cfCard0">
           <div class="cf-card">
             <div class="cf-panel">
-              <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 64% 24%, rgba(255,196,140,.35) 0%, rgba(255,196,140,0) 58%);z-index:1"></div>
-              <div class="cf-art" style="width:288px;height:217px;top:-22px;left:144px;transform:rotate(-3deg);filter:drop-shadow(0 14px 22px rgba(0,0,0,.42));background-image:url(assets/notas-leque.webp);background-position:top center;z-index:1"></div>
-              <div class="cf-art" style="width:138px;height:164px;top:46px;left:185px;transform:rotate(-12deg);filter:drop-shadow(0 16px 26px rgba(0,0,0,.5));background-image:url(assets/carteira-trabalho.webp);background-position:bottom center;z-index:2"></div>
+              <img src="assets/hero-cards/trabalhador.webp" alt="Carteira de Trabalho e Previdência Social ao lado de dinheiro sobre a mesa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;transform:scale(1.2);transform-origin:50% 45%;z-index:0">
               <div class="cf-legib"></div>
               <span class="cf-tag">CLT</span>
               <h3 class="cf-title" style="font-size:23px;right:70px">Empréstimo do<br>Trabalhador</h3>
@@ -752,8 +783,7 @@ tailwind.config = {
         <div class="cf-card-wrap" id="cfCard1">
           <div class="cf-card">
             <div class="cf-panel">
-              <div class="cf-art" style="width:150px;height:130px;top:-26px;left:-34px;transform:rotate(20deg);opacity:.92;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4));background-image:url(assets/money-bundle.webp);background-position:center;z-index:1"></div>
-              <div class="cf-art" style="width:280px;height:200px;bottom:-30px;right:-42px;transform:rotate(-10deg);filter:drop-shadow(0 18px 26px rgba(0,0,0,.5)) drop-shadow(0 0 40px rgba(232,80,26,.34));background-image:url(assets/money-bundle.webp);background-position:bottom right;z-index:1"></div>
+              <img src="assets/hero-cards/consignado.webp" alt="Casal de aposentados sorrindo no sofá segurando dinheiro" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;transform:scale(1.2);transform-origin:50% 38%;z-index:0">
               <div class="cf-legib"></div>
               <span class="cf-tag">INSS</span>
               <h3 class="cf-title" style="font-size:27px;right:110px">Empréstimo<br>Consignado</h3>
@@ -779,8 +809,7 @@ tailwind.config = {
         <div class="cf-card-wrap" id="cfCard2">
           <div class="cf-card">
             <div class="cf-panel">
-              <div class="cf-art" style="width:150px;height:130px;top:-26px;left:-34px;transform:rotate(20deg);opacity:.92;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4));background-image:url(assets/money-bundle.webp);background-position:center;z-index:1"></div>
-              <div class="cf-art" style="width:280px;height:200px;bottom:-30px;right:-42px;transform:rotate(-10deg);filter:drop-shadow(0 18px 26px rgba(0,0,0,.5)) drop-shadow(0 0 40px rgba(232,80,26,.34));background-image:url(assets/money-bundle.webp);background-position:bottom right;z-index:1"></div>
+              <img src="assets/hero-cards/federal-civil.webp" alt="Mesa de escritório com dinheiro, agenda e caneta" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 45%;transform:scale(1.2);transform-origin:52% 45%;z-index:0">
               <div class="cf-legib"></div>
               <span class="cf-tag">SIAPE</span>
               <h3 class="cf-title" style="font-size:27px;right:110px">Empréstimo<br>Federal Civil</h3>
@@ -806,25 +835,29 @@ tailwind.config = {
         <div class="cf-card-wrap" id="cfCard3">
           <div class="cf-card">
             <div class="cf-panel">
-              <div class="cf-art" style="width:150px;height:130px;top:-26px;left:-34px;transform:rotate(20deg);opacity:.92;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4));background-image:url(assets/money-bundle.webp);background-position:center;z-index:1"></div>
-              <div class="cf-art" style="width:280px;height:200px;bottom:-30px;right:-42px;transform:rotate(-10deg);filter:drop-shadow(0 18px 26px rgba(0,0,0,.5)) drop-shadow(0 0 40px rgba(232,80,26,.34));background-image:url(assets/money-bundle.webp);background-position:bottom right;z-index:1"></div>
+              <img src="assets/hero-cards/cartao-cred.webp" alt="Celular com notificação de empréstimo aprovado, ao lado de um cartão de crédito e dinheiro" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:66% 44%;transform:scale(1.6);transform-origin:66% 44%;z-index:0">
               <div class="cf-legib"></div>
               <span class="cf-tag">Cartão</span>
               <h3 class="cf-title" style="font-size:22px;right:20px">Empréstimo no<br>Cartão de Crédito</h3>
             </div>
             <div class="cf-info">
               <p class="cf-sub">Use o limite do seu cartão sem comprometer o salário.</p>
-              <div class="cf-footer">
-                <div class="cf-badge">
-                  <span class="cf-badge-lbl">Parcelas a partir de</span>
-                  <span class="cf-badge-val">até 12x</span>
+              <div class="cf-footer cf-footer-cartao">
+                <div class="cf-stats">
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">Você recebe</span>
+                    <span class="cf-stat-val cf-stat-val--big">R$ 3.000</span>
+                  </div>
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">em <b>12x</b> de</span>
+                    <span class="cf-stat-val">R$ 314,97</span>
+                  </div>
                 </div>
-                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+saber+como+liberar+meu+limite+de+cart%C3%A3o+de+cr%C3%A9dito." target="_blank" rel="noopener" onclick="trackWA('wa_deck_cartao')" class="cf-cta">
+                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+saber+como+liberar+meu+limite+de+cart%C3%A3o+de+cr%C3%A9dito." target="_blank" rel="noopener" onclick="trackWA('wa_deck_cartao')" class="cf-cta cf-cta--full">
                   Consultar já <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </a>
               </div>
-              <div class="cf-divider"></div>
-              <p class="cf-disclaimer">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
+              <p class="cf-disclaimer" style="margin-top:5px">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
             </div>
           </div>
         </div>
@@ -833,8 +866,7 @@ tailwind.config = {
         <div class="cf-card-wrap" id="cfCard4">
           <div class="cf-card">
             <div class="cf-panel">
-              <div class="cf-art" style="width:150px;height:130px;top:-26px;left:-34px;transform:rotate(20deg);opacity:.92;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4));background-image:url(assets/money-bundle.webp);background-position:center;z-index:1"></div>
-              <div class="cf-art" style="width:280px;height:200px;bottom:-30px;right:-42px;transform:rotate(-10deg);filter:drop-shadow(0 18px 26px rgba(0,0,0,.5)) drop-shadow(0 0 40px rgba(232,80,26,.34));background-image:url(assets/money-bundle.webp);background-position:bottom right;z-index:1"></div>
+              <img src="assets/hero-cards/militares1.webp" alt="Farda militar dobrada com brasão do Brasil sobre a mesa, ao lado de dinheiro e um caderno" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:48% 40%;transform:scale(1.2);transform-origin:48% 40%;z-index:0">
               <div class="cf-legib"></div>
               <span class="cf-tag">Militar</span>
               <h3 class="cf-title" style="font-size:27px;right:110px">Empréstimo<br>Militares</h3>
@@ -983,7 +1015,7 @@ tailwind.config = {
 
       <div class="mtv-ctrl mt-6" role="group" aria-label="Controles do carrossel">
         <button class="mtv-arrow" id="mtv-prev" aria-label="Motivo anterior" disabled>&#8249;</button>
-        <div class="mtv-dots" id="mtv-dots" aria-hidden="true"></div>
+        <div class="mtv-progress" aria-hidden="true"><span class="mtv-progress-fill" id="mtv-prog"></span></div>
         <button class="mtv-arrow" id="mtv-next" aria-label="Próximo motivo">&#8250;</button>
       </div>
     </div><!-- /mtv-carousel -->
@@ -1324,15 +1356,15 @@ tailwind.config = {
           <div class="text-[10px] font-bold tracking-[.1em] uppercase text-laranja-acao mb-1.5">Matriz</div>
           <h3 class="font-body text-[22px] font-bold text-grafite mb-3.5">Realengo</h3>
           <div class="flex flex-col gap-2.5 mb-[18px]">
-            <div class="flex gap-2.5 items-start text-[16px] text-[#524C45] leading-relaxed">
+            <div class="flex gap-2.5 items-start text-[15px] text-[#524C45] leading-relaxed">
               <svg class="w-4 h-4 stroke-ambar fill-none stroke-2 shrink-0 mt-[1px]" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <span>Av. Santa Cruz, 1028 — Realengo, Rio de Janeiro / RJ</span>
             </div>
-            <div class="flex gap-2.5 items-start text-[16px] text-[#524C45] leading-relaxed">
+            <div class="flex gap-2.5 items-start text-[15px] text-[#524C45] leading-relaxed">
               <svg class="w-4 h-4 stroke-ambar fill-none stroke-2 shrink-0 mt-[1px]" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <span>Seg–Qui: 08h às 18h · Sex: 09h às 18h</span>
             </div>
-            <div class="flex gap-2.5 items-start text-[16px] text-[#524C45] leading-relaxed">
+            <div class="flex gap-2.5 items-start text-[15px] text-[#524C45] leading-relaxed">
               <svg class="w-4 h-4 stroke-ambar fill-none stroke-2 shrink-0 mt-[1px]" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.91-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <a href="tel:+5521964781371" class="no-underline hover:text-laranja-acao transition-colors">(21) 96478-1371</a>
             </div>
@@ -1354,15 +1386,15 @@ tailwind.config = {
           <div class="text-[10px] font-bold tracking-[.1em] uppercase text-laranja-acao mb-1.5">Filial</div>
           <h3 class="font-body text-[22px] font-bold text-grafite mb-3.5">Bangu</h3>
           <div class="flex flex-col gap-2.5 mb-[18px]">
-            <div class="flex gap-2.5 items-start text-[16px] text-[#524C45] leading-relaxed">
+            <div class="flex gap-2.5 items-start text-[15px] text-[#524C45] leading-relaxed">
               <svg class="w-4 h-4 stroke-ambar fill-none stroke-2 shrink-0 mt-[1px]" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <span>Rua Professor Clemente Ferreira, 1764, loja c — Bangu, Rio de Janeiro / RJ</span>
             </div>
-            <div class="flex gap-2.5 items-start text-[16px] text-[#524C45] leading-relaxed">
+            <div class="flex gap-2.5 items-start text-[15px] text-[#524C45] leading-relaxed">
               <svg class="w-4 h-4 stroke-ambar fill-none stroke-2 shrink-0 mt-[1px]" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <span>Seg–Qui: 08h às 18h · Sex: 09h às 18h</span>
             </div>
-            <div class="flex gap-2.5 items-start text-[16px] text-[#524C45] leading-relaxed">
+            <div class="flex gap-2.5 items-start text-[15px] text-[#524C45] leading-relaxed">
               <svg class="w-4 h-4 stroke-ambar fill-none stroke-2 shrink-0 mt-[1px]" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.91-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <a href="tel:+5521988883917" class="no-underline hover:text-laranja-acao transition-colors">(21) 98888-3917</a>
             </div>
@@ -1383,149 +1415,107 @@ tailwind.config = {
      ═══════════════════════ -->
 <section class="bg-areia py-16 px-5 md:py-[100px] md:px-12" id="depoimentos">
   <div class="max-w-[1200px] mx-auto">
-    <div class="text-center mb-10">
-      <div class="eyebrow inline-flex items-center justify-center gap-2 text-[11px] font-semibold tracking-[.12em] uppercase text-ambar mb-3.5">Quem já fez, aprovou</div>
+    <div class="text-center max-w-[580px] mx-auto mb-12 md:mb-14">
+      <div class="eyebrow inline-flex items-center justify-center gap-2 text-[11px] font-semibold tracking-[.12em] uppercase text-laranja-acao mb-3.5">Reputação e confiança</div>
       <h2 class="section-title font-body font-bold leading-[1.2] tracking-[-0.3px] text-grafite mb-4">O que dizem nossos <span class="text-laranja-acao">clientes</span></h2>
-      <p class="text-base leading-[1.7] text-[#6B6560] max-w-[480px] mx-auto">Conversas reais de quem foi atendido pela nossa equipe. Sem roteiro, sem ator.</p>
+      <p class="text-base leading-[1.7] text-[#6B6560]">Estamos reunindo os depoimentos reais de quem já passou pela nossa equipe. Por enquanto, veja exemplos do tipo de atendimento que você encontra aqui.</p>
     </div>
-    <div class="flex gap-8 overflow-x-auto lg:overflow-visible lg:justify-center pb-4 snap-x" style="-webkit-overflow-scrolling:touch">
-      <figure class="snap-center shrink-0 flex flex-col items-center gap-3">
-        <div class="zap-phone">
-          <div class="zap-screen">
-            <div class="zap-top">
-              <div class="zap-avatar">GR</div>
-              <div class="leading-tight"><div class="text-[13px] font-semibold">Grupo Real Intermediações</div><div class="text-[10px] opacity-80">online</div></div>
-            </div>
-            <div class="zap-body">
-              <div class="zap-bubble zap-in">Boa tarde, queria saber sobre empréstimo consignado<span class="zap-time">14:02</span></div>
-              <div class="zap-bubble zap-out">Olá! Boa tarde 😊 Pode deixar, vou te ajudar. Você é aposentado, servidor ou CLT?<span class="zap-time">14:03</span></div>
-              <div class="zap-bubble zap-in">Sou aposentada pelo INSS<span class="zap-time">14:04</span></div>
-              <div class="zap-bubble zap-out">Perfeito! Consigo verificar o limite disponível pra você agora. Só preciso do número do benefício 🙂<span class="zap-time">14:04</span></div>
-              <div class="zap-bubble zap-in">Muito atencioso vocês, obrigada!<span class="zap-time">14:18</span></div>
-            </div>
-          </div>
+
+    <!-- Cartões de citação editoriais, paleta pêssego -->
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 list-none p-0 m-0 mb-6 md:mb-8">
+      <!-- Pêssego (Maria) -->
+      <li class="dep-card dep-peach rounded-2xl p-7 md:p-8 flex flex-col gap-5">
+        <p class="font-bitter text-[18px] leading-[1.7] text-[#3A2C20]">Cheguei perdida sobre qual empréstimo escolher. Me explicaram tudo com calma, sem pressa e sem letra miúda. Saí entendendo cada parcela.</p>
+        <div class="mt-auto flex items-center gap-3 pt-4 border-t border-[#EBD4C2]">
+          <span aria-hidden="true" class="w-11 h-11 rounded-full bg-gradient-to-br from-[#FF8A3D] to-[#E8501A] ring-2 ring-white shadow-[0_6px_16px_rgba(232,80,26,.3)] flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="3.2"/><path d="M12 11c-2 0-3.3 1.3-4.1 3.4L6 20h12l-1.9-5.6C15.3 12.3 14 11 12 11z"/></svg>
+          </span>
+          <span class="leading-tight"><span class="block text-[15px] font-semibold text-grafite">Maria <span class="font-normal text-[#9A9590]">(exemplo)</span></span><span class="block text-[13px] text-[#7A756C]">Aposentada</span></span>
         </div>
-        <figcaption class="text-[13px] text-[#6B6560] text-center">— <strong class="text-grafite font-semibold">Maria S.</strong>, aposentada INSS</figcaption>
-      </figure>
-      <figure class="snap-center shrink-0 flex flex-col items-center gap-3">
-        <div class="zap-phone">
-          <div class="zap-screen">
-            <div class="zap-top">
-              <div class="zap-avatar">GR</div>
-              <div class="leading-tight"><div class="text-[13px] font-semibold">Grupo Real Intermediações</div><div class="text-[10px] opacity-80">online</div></div>
-            </div>
-            <div class="zap-body">
-              <div class="zap-bubble zap-in">Fui indicado por um amigo, quero fazer um empréstimo<span class="zap-time">10:11</span></div>
-              <div class="zap-bubble zap-out">Seja bem-vindo! Fico feliz com a indicação 😊 Qual é o seu convênio?<span class="zap-time">10:12</span></div>
-              <div class="zap-bubble zap-in">Sou servidor municipal<span class="zap-time">10:13</span></div>
-              <div class="zap-bubble zap-out">Ótimo! Atendemos servidores de várias prefeituras. Me passa o município e já verifico.<span class="zap-time">10:13</span></div>
-              <div class="zap-bubble zap-in">Resolveram tudo rápido, recomendo!<span class="zap-time">11:45</span></div>
-            </div>
-          </div>
+      </li>
+      <!-- Pêssego (Carlos) -->
+      <li class="dep-card dep-peach rounded-2xl p-7 md:p-8 flex flex-col gap-5">
+        <p class="font-bitter text-[18px] leading-[1.7] text-[#3A2C20]">Fui indicado por um amigo e fui muito bem recebido. Resolveram tudo de forma rápida e transparente. Recomendo a quem procura atendimento de verdade.</p>
+        <div class="mt-auto flex items-center gap-3 pt-4 border-t border-[#EBD4C2]">
+          <span aria-hidden="true" class="w-11 h-11 rounded-full bg-gradient-to-br from-[#FF8A3D] to-[#E8501A] ring-2 ring-white shadow-[0_6px_16px_rgba(232,80,26,.3)] flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 20v-2.3C5.5 14.6 8.4 13 12 13s6.5 1.6 6.5 4.7V20z"/></svg>
+          </span>
+          <span class="leading-tight"><span class="block text-[15px] font-semibold text-grafite">Carlos <span class="font-normal text-[#9A9590]">(exemplo)</span></span><span class="block text-[13px] text-[#7A756C]">Servidor SIAPE</span></span>
         </div>
-        <figcaption class="text-[13px] text-[#6B6560] text-center">— <strong class="text-grafite font-semibold">Carlos R.</strong>, servidor municipal</figcaption>
-      </figure>
-      <figure class="snap-center shrink-0 flex flex-col items-center gap-3">
-        <div class="zap-phone">
-          <div class="zap-screen">
-            <div class="zap-top">
-              <div class="zap-avatar">GR</div>
-              <div class="leading-tight"><div class="text-[13px] font-semibold">Grupo Real Intermediações</div><div class="text-[10px] opacity-80">online</div></div>
-            </div>
-            <div class="zap-body">
-              <div class="zap-bubble zap-in">Vocês cobram alguma taxa pra consultar?<span class="zap-time">09:30</span></div>
-              <div class="zap-bubble zap-out">Não! A consulta e a simulação são 100% gratuitas e sem compromisso 😊<span class="zap-time">09:31</span></div>
-              <div class="zap-bubble zap-in">Que ótimo! Vim na loja e fui muito bem atendida. Indico a todos!<span class="zap-time">16:22</span></div>
-            </div>
-          </div>
+      </li>
+      <!-- Pêssego (Ana) -->
+      <li class="dep-card dep-peach rounded-2xl p-7 md:p-8 flex flex-col gap-5">
+        <p class="font-bitter text-[18px] leading-[1.7] text-[#3A2C20]">Perguntei se cobravam algo para consultar e me explicaram que a simulação é gratuita e sem compromisso. Atendimento na loja foi excelente, do início ao fim.</p>
+        <div class="mt-auto flex items-center gap-3 pt-4 border-t border-[#EBD4C2]">
+          <span aria-hidden="true" class="w-11 h-11 rounded-full bg-gradient-to-br from-[#FF8A3D] to-[#E8501A] ring-2 ring-white shadow-[0_6px_16px_rgba(232,80,26,.3)] flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="3.2"/><path d="M12 11c-2 0-3.3 1.3-4.1 3.4L6 20h12l-1.9-5.6C15.3 12.3 14 11 12 11z"/></svg>
+          </span>
+          <span class="leading-tight"><span class="block text-[15px] font-semibold text-grafite">Ana <span class="font-normal text-[#9A9590]">(exemplo)</span></span><span class="block text-[13px] text-[#7A756C]">CLT — carteira assinada</span></span>
         </div>
-        <figcaption class="text-[13px] text-[#6B6560] text-center">— <strong class="text-grafite font-semibold">Ana L.</strong>, CLT</figcaption>
-      </figure>
-    </div>
-    <p class="text-center text-[12px] text-[#9A9590] mt-6">Depoimentos reais de clientes. Nomes abreviados para privacidade.</p>
+      </li>
+    </ul>
+
+    <p class="text-center text-[12px] leading-[1.6] text-[#9A9590] mt-2 max-w-[540px] mx-auto">Os cartões acima são exemplos ilustrativos do tipo de atendimento que oferecemos. Depoimentos reais de clientes serão publicados aqui em breve — <strong class="font-semibold text-[#7A756C]">nunca inventamos avaliações</strong>.</p>
   </div>
 </section>
 
 <!-- ═══════════════════════
      SOBRE / QUEM SOMOS
      ═══════════════════════ -->
-<section class="bg-cafe overflow-hidden" id="sobre">
-  <div class="max-w-[1200px] mx-auto md:grid md:grid-cols-2">
+<section class="bg-[#FFF4EC] py-16 px-5 md:py-[100px] md:px-12" id="sobre">
+  <div class="max-w-[1100px] mx-auto">
 
-    <!-- Texto -->
-    <div class="px-5 pt-16 pb-12 md:px-12 md:pt-20 md:pb-16">
-      <div class="eyebrow-white eyebrow inline-flex items-center gap-2 text-[11px] font-semibold tracking-[.12em] uppercase text-areia/40 mb-3.5">Quem somos</div>
-      <h2 class="section-title font-body font-bold leading-[1.2] tracking-[-0.3px] text-white mb-4">O Grupo <span class="text-laranja-acao">Real</span></h2>
-      <p class="text-base leading-[1.75] text-areia/55 max-w-[520px] mb-9">Somos um correspondente bancário autorizado, com lojas físicas em <strong class="text-white/80">Bangu e Realengo</strong>, na Zona Oeste do Rio de Janeiro. Há mais de 10 anos conectamos famílias a crédito consignado acessível — para aposentados e pensionistas do INSS, trabalhadores CLT, servidores e militares. O atendimento é presencial nas lojas e também online, pelo WhatsApp, para clientes de todo o Brasil — de <strong class="text-white/80">humano para humano</strong>, com transparência e respeito.</p>
-
-      <div class="flex flex-col gap-px bg-white/[.08] border border-white/[.1] rounded-card overflow-hidden">
-        <div class="bg-white/[.04] p-[22px_20px] flex items-start gap-4 border-b border-white/[.06]">
-          <div class="w-[42px] h-[42px] rounded-[8px] bg-laranja-acao/[.12] border border-laranja-acao/[.2] flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5 stroke-laranja-acao fill-none stroke-2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div>
-            <div class="text-[16px] font-bold text-white mb-1">Autorizado pelo Banco Central</div>
-            <div class="text-[14px] text-areia/45 leading-[1.65]">Operamos nos termos da Resolução nº 4.935/2021. Você está em boas mãos.</div>
-          </div>
-        </div>
-        <div class="bg-white/[.04] p-[22px_20px] flex items-start gap-4 border-b border-white/[.06]">
-          <div class="w-[42px] h-[42px] rounded-[8px] bg-laranja-acao/[.12] border border-laranja-acao/[.2] flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5 stroke-laranja-acao fill-none stroke-2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div>
-            <div class="text-[16px] font-bold text-white mb-1">2 filiais físicas — Bangu e Realengo</div>
-            <div class="text-[14px] text-areia/45 leading-[1.65]">Você pode visitar nossa loja, conversar pessoalmente e sair com tudo resolvido.</div>
-          </div>
-        </div>
-        <div class="bg-white/[.04] p-[22px_20px] flex items-start gap-4 border-b border-white/[.06]">
-          <div class="w-[42px] h-[42px] rounded-[8px] bg-laranja-acao/[.12] border border-laranja-acao/[.2] flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5 stroke-laranja-acao fill-none stroke-2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div>
-            <div class="text-[16px] font-bold text-white mb-1">Parceria com múltiplos bancos</div>
-            <div class="text-[14px] text-areia/45 leading-[1.65]">Buscamos a melhor taxa entre vários bancos para o seu perfil e convênio.</div>
-          </div>
-        </div>
-        <div class="bg-white/[.04] p-[22px_20px] flex items-start gap-4">
-          <div class="w-[42px] h-[42px] rounded-[8px] bg-laranja-acao/[.12] border border-laranja-acao/[.2] flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5 stroke-laranja-acao fill-none stroke-2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <div class="text-[16px] font-bold text-white mb-1">Atendimento especializado</div>
-            <div class="text-[14px] text-areia/45 leading-[1.65]">Orientação com atenção, sem pressa e sem letras miúdas. De humano para humano.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA Quem Somos -->
-      <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Conheci+o+Grupo+Real+e+quero+falar+com+a+equipe."
-         target="_blank" rel="noopener" onclick="trackWA('wa_sobre_cta')"
-         class="mt-8 inline-flex items-center gap-2.5 bg-laranja-acao text-white font-body text-[15px] font-bold py-[14px] px-[24px] rounded-btn no-underline transition-all duration-300 hover:bg-laranja-acao-d hover:-translate-y-px active:scale-[.98]">
-        <svg class="w-[17px] h-[17px] fill-white shrink-0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Iniciar conversa com a equipe
-      </a>
+    <!-- Cabeçalho -->
+    <div class="max-w-[640px] mb-12 md:mb-20">
+      <div class="eyebrow inline-flex items-center gap-2 text-[11px] font-semibold tracking-[.14em] uppercase text-laranja-acao mb-3.5">Quem somos</div>
+      <h2 class="section-title font-body font-bold leading-[1.2] tracking-[-0.3px] text-cafe">Nossa <span class="text-laranja-acao">história</span></h2>
     </div>
 
-    <!-- Foto -->
-    <div class="sobre-photo-overlay relative overflow-hidden h-[280px] md:h-auto md:min-h-[500px]">
-      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80&auto=format&fit=crop"
-           alt="Equipe do Grupo Real, correspondente bancário na Zona Oeste do Rio de Janeiro" loading="lazy"
-           class="w-full h-full object-cover object-[center_35%] brightness-[.45] saturate-[.8]"/>
-      <div class="absolute bottom-0 left-0 right-0 px-6 pb-7 z-10">
-        <div class="font-body text-[20px] font-bold text-white mb-1.5">Uma equipe que você pode confiar</div>
-        <div class="text-[13px] text-areia/50">Zona Oeste do Rio de Janeiro · Desde 2012</div>
-      </div>
-    </div>
+    <!-- 3 containers claros (fundo pêssego) · texto + imagem ao lado, lados alternados (PLACEHOLDER — texto e imagens provisórios) -->
+    <div class="flex flex-col gap-12 md:gap-[88px]">
 
-    <!-- Tags de convênios -->
-    <div class="flex flex-wrap gap-2 px-5 py-6 pb-14 md:col-span-2 md:px-12 md:pb-[72px]">
-      <span class="bg-white/[.07] text-areia/60 text-[11px] font-semibold py-1.5 px-3.5 rounded-full border border-white/[.1]">CLT</span>
-      <span class="bg-white/[.07] text-areia/60 text-[11px] font-semibold py-1.5 px-3.5 rounded-full border border-white/[.1]">FGTS</span>
-      <span class="bg-white/[.07] text-areia/60 text-[11px] font-semibold py-1.5 px-3.5 rounded-full border border-white/[.1]">INSS</span>
-      <span class="bg-white/[.07] text-areia/60 text-[11px] font-semibold py-1.5 px-3.5 rounded-full border border-white/[.1]">SIAPE</span>
-      <span class="bg-white/[.07] text-areia/60 text-[11px] font-semibold py-1.5 px-3.5 rounded-full border border-white/[.1]">Forças Armadas</span>
-      <span class="bg-white/[.07] text-areia/60 text-[11px] font-semibold py-1.5 px-3.5 rounded-full border border-white/[.1]">Governos</span>
-      <span class="bg-white/[.07] text-areia/60 text-[11px] font-semibold py-1.5 px-3.5 rounded-full border border-white/[.1]">Prefeituras</span>
+      <!-- Container 1 — imagem à direita -->
+      <article class="rounded-[24px] bg-white overflow-hidden md:overflow-visible shadow-[0_18px_44px_-16px_rgba(194,65,12,.22)] border border-laranja-acao/[.15] grid md:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
+        <!-- Texto -->
+        <div class="p-7 md:p-10">
+          <span aria-hidden="true" class="block w-10 h-[3px] rounded-full bg-laranja-acao mb-7"></span>
+          <p class="text-[17px] leading-[1.8] text-[#4A4039]">Em 2012, o Grupo Real abriu sua primeira loja em Bangu, na Zona Oeste do Rio de Janeiro, com uma ideia simples: tratar crédito consignado como conversa de gente, sem letra miúda. Os primeiros clientes vieram pela indicação de vizinhos e parentes, e foi esse boca a boca de confiança que sustentou os primeiros anos da empresa. <em class="text-[#B9AE9F] not-italic">(texto provisório — será substituído)</em></p>
+        </div>
+        <!-- Imagem ao lado -->
+        <div aria-hidden="true" class="relative min-h-[220px] md:min-h-0 bg-gradient-to-br from-[#FFE7D4] to-[#FFD2B0] flex items-center justify-center overflow-hidden md:self-end md:h-[calc(100%+64px)] md:rounded-t-[20px] md:rounded-br-[20px] md:shadow-[0_16px_36px_-12px_rgba(194,65,12,.32)]">
+          <span class="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/35 to-transparent pointer-events-none"></span>
+          <svg class="w-12 h-12 stroke-[#C2410C]/45 fill-none stroke-[1.5]" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        </div>
+      </article>
+
+      <!-- Container 2 — imagem à esquerda -->
+      <article class="rounded-[24px] bg-white overflow-hidden md:overflow-visible shadow-[0_18px_44px_-16px_rgba(194,65,12,.22)] border border-laranja-acao/[.15] grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.65fr)]">
+        <!-- Imagem ao lado -->
+        <div aria-hidden="true" class="relative min-h-[220px] md:min-h-0 bg-gradient-to-br from-[#FFE7D4] to-[#FFD2B0] flex items-center justify-center overflow-hidden md:self-end md:h-[calc(100%+64px)] md:rounded-t-[20px] md:rounded-bl-[20px] md:shadow-[0_16px_36px_-12px_rgba(194,65,12,.32)]">
+          <span class="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/35 to-transparent pointer-events-none"></span>
+          <svg class="w-12 h-12 stroke-[#C2410C]/45 fill-none stroke-[1.5]" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        </div>
+        <!-- Texto -->
+        <div class="p-7 md:p-10">
+          <span aria-hidden="true" class="block w-10 h-[3px] rounded-full bg-laranja-acao mb-7"></span>
+          <p class="text-[17px] leading-[1.8] text-[#4A4039]">Com o tempo a procura cresceu e abrimos a segunda unidade, em Realengo, ampliando o atendimento para toda a Zona Oeste. Passamos a trabalhar com vários bancos parceiros ao mesmo tempo, sempre buscando a melhor taxa para cada perfil, e hoje atendemos nas lojas e também online, pelo WhatsApp, para clientes de todo o Brasil. <em class="text-[#B9AE9F] not-italic">(texto provisório — será substituído)</em></p>
+        </div>
+      </article>
+
+      <!-- Container 3 — imagem à direita -->
+      <article class="rounded-[24px] bg-white overflow-hidden md:overflow-visible shadow-[0_18px_44px_-16px_rgba(194,65,12,.22)] border border-laranja-acao/[.15] grid md:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
+        <!-- Texto -->
+        <div class="p-7 md:p-10">
+          <span aria-hidden="true" class="block w-10 h-[3px] rounded-full bg-laranja-acao mb-7"></span>
+          <p class="text-[17px] leading-[1.8] text-[#4A4039]">Mais de uma década depois, a régua continua a mesma com que começamos: transparência, paciência e respeito por quem confia o próprio benefício à nossa equipe. Cada cliente é atendido de humano para humano, sem pressa e sem letra miúda, do primeiro contato até a assinatura. <em class="text-[#B9AE9F] not-italic">(texto provisório — será substituído)</em></p>
+        </div>
+        <!-- Imagem ao lado -->
+        <div aria-hidden="true" class="relative min-h-[220px] md:min-h-0 bg-gradient-to-br from-[#FFE7D4] to-[#FFD2B0] flex items-center justify-center overflow-hidden md:self-end md:h-[calc(100%+64px)] md:rounded-t-[20px] md:rounded-br-[20px] md:shadow-[0_16px_36px_-12px_rgba(194,65,12,.32)]">
+          <span class="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/35 to-transparent pointer-events-none"></span>
+          <svg class="w-12 h-12 stroke-[#C2410C]/45 fill-none stroke-[1.5]" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -1683,8 +1673,8 @@ tailwind.config = {
 <footer class="bg-cafe text-areia/60 px-5 pt-14 pb-8 md:px-12 md:pt-[72px] md:pb-9">
   <div class="max-w-[1200px] mx-auto">
     <a href="#topo" class="flex items-center gap-2.5 no-underline mb-2.5">
-      <img src="assets/logo/logo-grupo-real.webp" alt="Grupo Real Intermediações" width="60" height="60" class="w-[120px] h-[120px] shrink-0 rounded-full" />
-      <span class="font-body text-base font-bold text-white">Grupo Real Intermediações</span>
+      <img src="assets/logo/logo-grupo-real.webp" alt="Grupo Real Intermediação" width="60" height="60" class="w-[120px] h-[120px] shrink-0 rounded-full" />
+      <span class="font-body text-base font-bold text-white">Grupo Real Intermediação</span>
     </a>
     <p class="text-[13px] leading-[1.7] mb-9 max-w-[280px]">Empréstimo consignado com transparência e presença física na Zona Oeste do Rio de Janeiro.</p>
 
@@ -1718,7 +1708,7 @@ tailwind.config = {
         <h4 class="text-[10px] font-bold tracking-[.12em] uppercase text-areia/60 mb-3">Contato</h4>
         <ul class="flex flex-col gap-2 list-none">
           <li><a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+falar+com+um+consultor+do+Grupo+Real." target="_blank" rel="noopener" onclick="trackWA('wa_footer_consultor')" class="text-[13px] text-areia/65 no-underline transition-colors duration-200 hover:text-laranja-acao">Falar com consultor</a></li>
-          <li><a href="https://wa.me/5521986862308" target="_blank" rel="noopener" onclick="trackWA('wa_footer_whatsapp')" class="text-[13px] text-areia/65 no-underline transition-colors duration-200 hover:text-laranja-acao">WhatsApp</a></li>
+          <li><a href="https://wa.me/5521986862308" target="_blank" rel="noopener" class="text-[13px] text-areia/65 no-underline transition-colors duration-200 hover:text-laranja-acao">WhatsApp</a></li>
           <li><a href="https://www.instagram.com/gruporealintermediacao/" target="_blank" rel="noopener" class="text-[13px] text-areia/65 no-underline transition-colors duration-200 hover:text-laranja-acao">Instagram</a></li>
           <li><a href="mailto:contato@gruporealintermediacao.com.br" class="text-[13px] text-areia/65 no-underline transition-colors duration-200 hover:text-laranja-acao">E-mail</a></li>
         </ul>
@@ -1726,8 +1716,8 @@ tailwind.config = {
     </div>
 
     <div class="border-t border-areia/[.08] pt-5">
-      <p class="text-[11px] leading-[1.8] mb-2">Correspondente bancário nos termos da Resolução nº 4.935/2021 do Banco Central do Brasil.<br>CNPJ: 15.191.039/0001-00 — Grupo Real Intermediações LTDA - ME</p>
-      <p class="text-[14px] mb-1">© 2026 Grupo Real Intermediações. Todos os direitos reservados.</p>
+      <p class="text-[11px] leading-[1.8] mb-2">Correspondente bancário nos termos da Resolução nº 4.935/2021 do Banco Central do Brasil.<br>CNPJ: 15.191.039/0001-00 — Grupo Real Intermediação LTDA - ME</p>
+      <p class="text-[14px] mb-1">© 2026 Grupo Real Intermediação. Todos os direitos reservados.</p>
       <a href="privacidade.html" class="text-[11px] text-areia/25 no-underline hover:text-laranja-acao transition-colors">Política de Privacidade</a>
       <span class="text-[11px] text-areia/25 mx-1.5">·</span>
       <a href="#" id="cookieManage" class="text-[11px] text-areia/25 no-underline hover:text-laranja-acao transition-colors">Gerenciar cookies</a>
@@ -1744,6 +1734,18 @@ tailwind.config = {
      target="_blank" rel="noopener" aria-label="WhatsApp — Falar com consultor" onclick="trackWA('wa_flutuante')"
      class="w-[58px] h-[58px] bg-[#25D366] rounded-full flex items-center justify-center shadow-wa no-underline transition-transform duration-[250ms] hover:scale-[1.08] shrink-0">
     <svg class="w-[30px] h-[30px] fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- ═══════════════════════
+     STICKY MOBILE FOOTER (ponto de recuperação — aparece após 100vh de scroll)
+     ═══════════════════════ -->
+<div class="sticky-mob-cta" id="mobCta">
+  <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Vim+pelo+site+e+quero+falar+com+um+consultor."
+     target="_blank" rel="noopener" onclick="trackWA('wa_mob_sticky')"
+     class="flex items-center justify-center gap-2 bg-verde-hi text-white font-bold text-base min-h-[48px] rounded-btn w-full no-underline">
+    <svg class="w-5 h-5 fill-white shrink-0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar com consultor — gratuito
   </a>
 </div>
 
@@ -1881,6 +1883,21 @@ document.addEventListener('click', function(e) {
     btn.setAttribute('aria-expanded', 'false');
   }
 });
+
+// ── STICKY MOBILE FOOTER ──
+(function() {
+  const el = document.getElementById('mobCta');
+  if (!el) return;
+  const threshold = window.innerHeight;
+  let visible = false;
+  window.addEventListener('scroll', function() {
+    const should = window.scrollY > threshold;
+    if (should !== visible) {
+      visible = should;
+      el.classList.toggle('is-visible', visible);
+    }
+  }, { passive: true });
+})();
 
 // ── TRACKING WA ──
 function trackWA(label) {
@@ -2066,16 +2083,7 @@ function toggleAcord(btn) {
   const cards    = [...track.children];
   const prevBtn  = document.getElementById('mtv-prev');
   const nextBtn  = document.getElementById('mtv-next');
-  const dotsWrap = document.getElementById('mtv-dots');
-
-  cards.forEach((_,i)=>{
-    const b = document.createElement('button');
-    b.className = 'mtv-dot';
-    b.setAttribute('aria-label','Ir para o motivo '+(i+1));
-    b.addEventListener('click',()=>go(i));
-    dotsWrap.appendChild(b);
-  });
-  const dots = [...dotsWrap.children];
+  const progFill = document.getElementById('mtv-prog');
 
   function current(){
     let best=0, bd=Infinity;
@@ -2091,10 +2099,11 @@ function toggleAcord(btn) {
     track.scrollTo({ left: cards[i].offsetLeft - (track.clientWidth-cards[i].clientWidth)/2, behavior:'smooth' });
   }
   function sync(){
-    const i = current();
-    dots.forEach((d,k) => d.classList.toggle('is-on', k===i));
+    const max = track.scrollWidth - track.clientWidth;
+    const p = max > 0 ? track.scrollLeft / max : 0;
+    if(progFill) progFill.style.width = Math.max(8, Math.min(100, p*100)).toFixed(2) + '%';
     prevBtn.disabled = track.scrollLeft <= 2;
-    nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    nextBtn.disabled = track.scrollLeft >= max - 2;
   }
   prevBtn.addEventListener('click', ()=>go(current()-1));
   nextBtn.addEventListener('click', ()=>go(current()+1));
