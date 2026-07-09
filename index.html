@@ -694,7 +694,7 @@ tailwind.config = {
   <div class="relative z-10 text-center px-5 pt-[clamp(32px,5vh,52px)] pb-8 max-w-[680px] mx-auto">
     <div class="font-source text-[13px] font-bold tracking-[.14em] uppercase mb-4" style="color:#FFE3CC">• Correspondente Bancário</div>
     <h1 class="font-bitter font-bold text-white mb-4 tracking-[-0.5px]" style="font-size:clamp(30px,4.4vw,46px);line-height:1.08">
-      Escolha o crédito <span style="background:#17A24B;color:#fff;border-radius:8px;font-style:italic;padding:2px .26em">certo</span> pra você
+      Escolha o crédito <span style="font-style:italic;text-decoration:underline;text-decoration-color:#FFE3CC;text-decoration-thickness:.14em;text-underline-offset:.14em">certo</span> pra você
     </h1>
     <p class="font-source mx-auto" style="color:rgba(255,247,240,0.92);font-size:clamp(15px,1.6vw,17px);line-height:1.55;max-width:540px">
       Um consultor analisa seu convênio e mostra as condições reais — sem pressão, sem letra miúda escondida.
@@ -764,17 +764,22 @@ tailwind.config = {
             </div>
             <div class="cf-info">
               <p class="cf-sub">Crédito rápido e seguro para quem tem carteira assinada.</p>
-              <div class="cf-footer">
-                <div class="cf-badge">
-                  <span class="cf-badge-lbl">Parcelas a partir de</span>
-                  <span class="cf-badge-val">R$ 142</span>
+              <div class="cf-footer cf-footer-cartao">
+                <div class="cf-stats">
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">Você recebe</span>
+                    <span class="cf-stat-val cf-stat-val--big">R$ 1.000</span>
+                  </div>
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">em <b>48x</b> de</span>
+                    <span class="cf-stat-val">R$ 60,06</span>
+                  </div>
                 </div>
-                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+avaliar+o+conv%C3%AAnio+da+minha+empresa+para+Empr%C3%A9stimo+Consignado+CLT." target="_blank" rel="noopener" onclick="trackWA('wa_deck_clt')" class="cf-cta">
+                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+avaliar+o+conv%C3%AAnio+da+minha+empresa+para+Empr%C3%A9stimo+Consignado+CLT." target="_blank" rel="noopener" onclick="trackWA('wa_deck_clt')" class="cf-cta cf-cta--full">
                   Consultar já <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </a>
               </div>
-              <div class="cf-divider"></div>
-              <p class="cf-disclaimer">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
+              <p class="cf-disclaimer" style="margin-top:5px">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
             </div>
           </div>
         </div>
@@ -790,17 +795,22 @@ tailwind.config = {
             </div>
             <div class="cf-info">
               <p class="cf-sub">Para aposentados e pensionistas, com desconto em folha.</p>
-              <div class="cf-footer">
-                <div class="cf-badge">
-                  <span class="cf-badge-lbl">Parcelas a partir de</span>
-                  <span class="cf-badge-val">R$ 245</span>
+              <div class="cf-footer cf-footer-cartao">
+                <div class="cf-stats">
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">Você recebe</span>
+                    <span class="cf-stat-val cf-stat-val--big">R$ 1.000</span>
+                  </div>
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">em <b>108x</b> de</span>
+                    <span class="cf-stat-val">R$ 24</span>
+                  </div>
                 </div>
-                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+falar+com+um+especialista+sobre+Empr%C3%A9stimo+Consignado+INSS." target="_blank" rel="noopener" onclick="trackWA('wa_deck_inss')" class="cf-cta">
+                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+falar+com+um+especialista+sobre+Empr%C3%A9stimo+Consignado+INSS." target="_blank" rel="noopener" onclick="trackWA('wa_deck_inss')" class="cf-cta cf-cta--full">
                   Consultar já <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </a>
               </div>
-              <div class="cf-divider"></div>
-              <p class="cf-disclaimer">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
+              <p class="cf-disclaimer" style="margin-top:5px">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
             </div>
           </div>
         </div>
@@ -816,17 +826,22 @@ tailwind.config = {
             </div>
             <div class="cf-info">
               <p class="cf-sub">Condições dedicadas a servidores públicos federais civis.</p>
-              <div class="cf-footer">
-                <div class="cf-badge">
-                  <span class="cf-badge-lbl">Parcelas a partir de</span>
-                  <span class="cf-badge-val">R$ 340</span>
+              <div class="cf-footer cf-footer-cartao">
+                <div class="cf-stats">
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">Você recebe</span>
+                    <span class="cf-stat-val cf-stat-val--big">R$ 1.000</span>
+                  </div>
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">em <b>120x</b> de</span>
+                    <span class="cf-stat-val">R$ 24</span>
+                  </div>
                 </div>
-                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+verificar+as+condi%C3%A7%C3%B5es+de+Empr%C3%A9stimo+Consignado+SIAPE." target="_blank" rel="noopener" onclick="trackWA('wa_deck_siape')" class="cf-cta">
+                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+verificar+as+condi%C3%A7%C3%B5es+de+Empr%C3%A9stimo+Consignado+SIAPE." target="_blank" rel="noopener" onclick="trackWA('wa_deck_siape')" class="cf-cta cf-cta--full">
                   Consultar já <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </a>
               </div>
-              <div class="cf-divider"></div>
-              <p class="cf-disclaimer">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
+              <p class="cf-disclaimer" style="margin-top:5px">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
             </div>
           </div>
         </div>
@@ -868,22 +883,27 @@ tailwind.config = {
             <div class="cf-panel">
               <img src="assets/hero-cards/militares1.webp" alt="Farda militar dobrada com brasão do Brasil sobre a mesa, ao lado de dinheiro e um caderno" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:48% 40%;transform:scale(1.2);transform-origin:48% 40%;z-index:0">
               <div class="cf-legib"></div>
-              <span class="cf-tag">Militar</span>
+              <span class="cf-tag">Exército</span>
               <h3 class="cf-title" style="font-size:27px;right:110px">Empréstimo<br>Militares</h3>
             </div>
             <div class="cf-info">
-              <p class="cf-sub">Crédito com condições próprias para as Forças Armadas.</p>
-              <div class="cf-footer">
-                <div class="cf-badge">
-                  <span class="cf-badge-lbl">Parcelas a partir de</span>
-                  <span class="cf-badge-val">R$ 198</span>
+              <p class="cf-sub">Crédito com condições próprias para o Exército Brasileiro.</p>
+              <div class="cf-footer cf-footer-cartao">
+                <div class="cf-stats">
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">Você recebe</span>
+                    <span class="cf-stat-val cf-stat-val--big">R$ 1.000</span>
+                  </div>
+                  <div class="cf-stat">
+                    <span class="cf-stat-lbl">em <b>96x</b> de</span>
+                    <span class="cf-stat-val">R$ 29</span>
+                  </div>
                 </div>
-                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+iniciar+uma+simula%C3%A7%C3%A3o+de+cr%C3%A9dito+para+For%C3%A7as+Armadas." target="_blank" rel="noopener" onclick="trackWA('wa_deck_militar')" class="cf-cta">
+                <a href="https://wa.me/5521986862308?text=Ol%C3%A1!+Gostaria+de+iniciar+uma+simula%C3%A7%C3%A3o+de+cr%C3%A9dito+para+o+Ex%C3%A9rcito." target="_blank" rel="noopener" onclick="trackWA('wa_deck_militar')" class="cf-cta cf-cta--full">
                   Consultar já <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </a>
               </div>
-              <div class="cf-divider"></div>
-              <p class="cf-disclaimer">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
+              <p class="cf-disclaimer" style="margin-top:5px">Sujeito a análise e contratação. Taxas, prazos e CET informados na simulação com o consultor.</p>
             </div>
           </div>
         </div>
@@ -986,6 +1006,17 @@ tailwind.config = {
             <span class="a3-cat">Casa</span>
             <h3>Deixe sua casa do seu jeito</h3>
             <p>Reforma, conserto ou adaptações pra viver com mais conforto e segurança.</p>
+          </div>
+        </article>
+
+        <article class="mtv-card a3-card">
+          <img src="assets/motivos/carro.webp" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top">
+          <div class="a3-scrim" aria-hidden="true"></div>
+
+          <div class="a3-body">
+            <span class="a3-cat">Carro</span>
+            <h3>Tenha seu próprio carro</h3>
+            <p>O valor pra dar a entrada, comprar à vista ou trocar o seu por um mais novo e seguro.</p>
           </div>
         </article>
 
